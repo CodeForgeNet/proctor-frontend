@@ -44,14 +44,15 @@ export const VideoProctor: React.FC<VideoProctorProps> = ({
     initialized.current = true;
 
     async function initialize() {
-      
+      console.log("VideoProctor: Starting initialization...");
       try {
-        
+        console.log("VideoProctor: Initializing ML models...");
         await Promise.all([initFaceDetection(), initObjectDetection()]);
-        
+        console.log("VideoProctor: ML models initialized.");
 
-        
+        console.log("VideoProctor: Creating session...");
         const newSessionResponse = await api.createSession(candidateName);
+        console.log("VideoProctor: Session created.");
         
         const sessionObj = {
           id:
@@ -63,19 +64,20 @@ export const VideoProctor: React.FC<VideoProctorProps> = ({
           events: [],
         };
         setSession(sessionObj);
-        
+        console.log("VideoProctor: Session state set.");
 
-        
+        console.log("VideoProctor: Initializing socket...");
         const SOCKET_URL =
           process.env.REACT_APP_SOCKET_URL || "http://localhost:5001";
         const socket = io(SOCKET_URL);
         socket.on("connect", () => {
-          
+          console.log("VideoProctor: Socket connected.");
           socket.emit("join-session", { sessionId: sessionObj.id });
         });
         socketRef.current = socket;
-        
+        console.log("VideoProctor: Socket initialized.");
 
+        console.log("VideoProctor: Initialization complete. Setting isLoading to false.");
         setIsLoading(false);
       } catch (error) {
         console.error("VideoProctor: Initialization error:", error);
