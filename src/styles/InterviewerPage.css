@@ -1,0 +1,65 @@
+.interviewer-page {
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.alerts-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  color: #333;
+}
+
+.alert-looking_away {
+  background-color: #fff3cd;
+}
+
+.alert-user_absent {
+  background-color: #f8d7da;
+}
+
+.alert-multiple_faces {
+  background-color: #f8d7da;
+}
+
+.alert-suspicious_object {
+  background-color: #f8d7da;
+}
+
+.alert-drowsiness_detected {
+  background-color: #fff3cd;
+}
+
+.alert-background_voice {
+  background-color: #e2e3e5;
+}
+
+.video-player-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+  padding: 15px;
+}
+
+.video-player-container h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.recorded-video {
+  width: 100%;
+  max-width: 640px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
