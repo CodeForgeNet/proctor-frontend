@@ -119,6 +119,12 @@ export const VideoProctor: React.FC<VideoProctorProps> = ({
 
         videoRef.current.srcObject = stream;
 
+        try {
+          await videoRef.current.play();
+        } catch (err) {
+          console.error("VideoProctor: Error playing video:", err);
+        }
+
         const options = { mimeType: "video/webm; codecs=vp9" };
         const mediaRecorder = new MediaRecorder(stream, options);
 
