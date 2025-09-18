@@ -52,7 +52,7 @@ export const VideoProctor: React.FC<VideoProctorProps> = ({
 
         console.log("VideoProctor: Creating session...");
         const newSessionResponse = await api.createSession(candidateName);
-        console.log("VideoProctor: Session created.");
+        console.log("VideoProctor: Raw newSessionResponse:", newSessionResponse);
         
         const sessionObj = {
           id:
@@ -63,8 +63,8 @@ export const VideoProctor: React.FC<VideoProctorProps> = ({
           startTime: new Date().toISOString(),
           events: [],
         };
+        console.log("VideoProctor: Constructed sessionObj.id:", sessionObj.id);
         setSession(sessionObj);
-        console.log("VideoProctor: Session state set.");
 
         console.log("VideoProctor: Initializing socket...");
         const SOCKET_URL =
